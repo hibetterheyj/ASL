@@ -1,4 +1,4 @@
-name: NonAdaptive/hard_labels_non_adaptive_02
+name: IsBugPresent/debug
 timestamp: true
 weights_restore: true
 checkpoint_restore: false
