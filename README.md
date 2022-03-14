@@ -57,7 +57,7 @@ You may have to adapt the conda environment depending on your system.
 
 #### Environment Configuration Explained
 Setting up the enviornment file depending on your system.
-You can either create a new enviornment file or edit an existin one in the ```env``` folder.
+You can either create a new enviornment file or edit an existing one in the ```env``` folder.
 For example you can create ```ASL/cfg/env/your_env_name.yml```, with the following content:
 
 ```yaml
@@ -90,7 +90,7 @@ If available set your NeptuneAPI Token to log all the experiments to NeptuneAI:
 export NEPTUNE_API_TOKEN="""YOUR_NEPTUNE_KEY"""
 ```
 With this you have setup the configuration.
-How to download and install the datasets is explained in [Dataset Preperation](Dataset-Preperation).
+How to download and install the datasets is explained in [Dataset Preperation](#dataset-preparation).
 
 ### Running Experiments
 
