@@ -1,0 +1,10 @@
+workstation: True
+
+base: /home/crowdbot/Documents/yujie/plr_res
+coco2014: /home/crowdbot/Documents/yujie/plr_data/coco
+scannet: /home/crowdbot/Documents/yujie/plr_data/scannet
+cocostuff164k: /home/crowdbot/Documents/yujie/plr_data/cocostuff164k
+mlhypersim: /home/crowdbot/Documents/yujie/plr_data/mlhypersim
+scannet_frames_25k: /home/crowdbot/Documents/yujie/plr_data/scannet/scannet_frames_25k
+
+labels_generic: /home/crowdbot/Documents/yujie/plr_data/
