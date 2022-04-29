@@ -1,0 +1,150 @@
+SUPERVISOR: Execute Task 0-1
+SUPERVISOR: Execute Task 0/1
+module
+SUPERVISOR: CALLING train_task: init=1 close=1 exp=cfg/exp/baseline/scannet/25k_pretrain/scannet25k_pretrain.yml env_cfg_path=cfg/env/yujie_ws.yml task_nr=0
+2022-04-28 17:18:07 he-legion pytorch_lightning.utilities.seed[483554] INFO Global seed set to 42
+Copy cfg/env/yujie_ws.yml to /home/he/projects/cl_seg_res/scannet25k_pretrain/2022-04-28T17:18:07_test/scannet25k_pretrain.yml
+==========================================================================================
+Summary TaskGenerator Tasks: 1
+  00 Name: Train_25k
+==========================================================================================
+2022-04-28 17:18:09 he-legion pytorch_lightning.utilities.rank_zero[483554] INFO TimeLimitCallback is set to 60min
+/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/trainer/connectors/accelerator_connector.py:287: LightningDeprecationWarning: Passing `Trainer(accelerator='ddp')` has been deprecated in v1.5 and will be removed in v1.7. Use `Trainer(strategy='ddp')` instead.
+  rank_zero_deprecation(
+2022-04-28 17:18:09 he-legion pytorch_lightning.utilities.rank_zero[483554] INFO Using 16bit native Automatic Mixed Precision (AMP)
+/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/trainer/connectors/callback_connector.py:96: LightningDeprecationWarning: Setting `Trainer(progress_bar_refresh_rate=10)` is deprecated in v1.5 and will be removed in v1.7. Please pass `pytorch_lightning.callbacks.progress.TQDMProgressBar` with `refresh_rate` directly to the Trainer's `callbacks` argument instead. Or, to disable the progress bar pass `enable_progress_bar = False` to the Trainer.
+  rank_zero_deprecation(
+2022-04-28 17:18:09 he-legion pytorch_lightning.utilities.rank_zero[483554] INFO GPU available: True, used: True
+2022-04-28 17:18:09 he-legion pytorch_lightning.utilities.rank_zero[483554] INFO TPU available: False, using: 0 TPU cores
+2022-04-28 17:18:09 he-legion pytorch_lightning.utilities.rank_zero[483554] INFO IPU available: False, using: 0 IPUs
+2022-04-28 17:18:09 he-legion pytorch_lightning.utilities.rank_zero[483554] INFO HPU available: False, using: 0 HPUs
+2022-04-28 17:18:09 he-legion pytorch_lightning.utilities.rank_zero[483554] INFO `Trainer(limit_train_batches=1.0)` was configured so 100% of the batches per epoch will be used..
+2022-04-28 17:18:09 he-legion pytorch_lightning.utilities.rank_zero[483554] INFO `Trainer(limit_val_batches=1.0)` was configured so 100% of the batches will be used..
+2022-04-28 17:18:09 he-legion pytorch_lightning.utilities.rank_zero[483554] INFO `Trainer(limit_test_batches=1.0)` was configured so 100% of the batches will be used..
+/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/trainer/configuration_validator.py:385: LightningDeprecationWarning: The `Callback.on_epoch_start` hook was deprecated in v1.6 and will be removed in v1.8. Please use `Callback.on_<train/validation/test>_epoch_start` instead.
+  rank_zero_deprecation(
+2022-04-28 17:18:09 he-legion pytorch_lightning.utilities.seed[483554] INFO Global seed set to 42
+2022-04-28 17:18:09 he-legion pytorch_lightning.utilities.distributed[483554] INFO Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/1
+2022-04-28 17:18:09 he-legion torch.distributed.distributed_c10d[483554] INFO Added key: store_based_barrier_key:1 to store for rank: 0
+2022-04-28 17:18:09 he-legion torch.distributed.distributed_c10d[483554] INFO Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+2022-04-28 17:18:09 he-legion pytorch_lightning.utilities.rank_zero[483554] INFO ----------------------------------------------------------------------------------------------------
+distributed_backend=nccl
+All distributed processes registered. Starting with 1 processes
+----------------------------------------------------------------------------------------------------
+
+2022-04-28 17:18:09 he-legion pytorch_lightning.loggers.tensorboard[483554] WARNING Missing logger folder: /home/he/projects/cl_seg_res/scannet25k_pretrain/2022-04-28T17:18:07_test/tensorboard
+/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:608: UserWarning: Checkpoint directory /home/he/projects/cl_seg_res/scannet25k_pretrain/2022-04-28T17:18:07_test exists and is not empty.
+  rank_zero_warn(f"Checkpoint directory {dirpath} exists and is not empty.")
+2022-04-28 17:18:13 he-legion pytorch_lightning.accelerators.gpu[483554] INFO LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+2022-04-28 17:18:13 he-legion pytorch_lightning.callbacks.model_summary[483554] INFO
+   | Name                | Type                | Params
+-------------------------------------------------------------
+0  | model               | FastSCNN            | 1.1 M
+1  | _rssb               | ReplayStateSyncBack | 0
+2  | train_acc           | Accuracy            | 0
+3  | train_aux_acc       | Accuracy            | 0
+4  | train_aux_vs_gt_acc | Accuracy            | 0
+5  | train_acc_real      | Accuracy            | 0
+6  | train_acc_replayed  | Accuracy            | 0
+7  | val_acc             | ModuleList          | 0
+8  | val_aux_acc         | ModuleList          | 0
+9  | val_aux_vs_gt_acc   | ModuleList          | 0
+10 | test_acc            | Accuracy            | 0
+11 | _teacher            | Teacher             | 0
+-------------------------------------------------------------
+1.1 M     Trainable params
+0         Non-trainable params
+1.1 M     Total params
+2.282     Total estimated model params size (MB)
+/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:240: PossibleUserWarning: The dataloader, train_dataloader, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 16 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:240: PossibleUserWarning: The dataloader, val_dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 16 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+============== SET REPLAY DATASET GLOBALS ===============
+Training: 0it [00:00, ?it/s]
+================ ON_TRAIN_START ==================
+ TASK NAME:                             Train_25k
+ TASK COUNT:                            0
+ CURRENT EPOCH:                         0
+ CURRENT EPOCH:                         0
+ RSSB STATE:                            tensor([0], device='cuda:0')
+ TRAINING DATASET LENGTH:               19921
+ VALIDATION DATASET 0 LENGTH:           4981
+ =============  ON_TRAIN_START_DONE ===============
+Epoch 0:   0%|                                                | 0/12451 [00:00<?, ?it/s][W reducer.cpp:1303] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+Traceback (most recent call last):
+  File "supervisor_new.py", line 80, in <module>
+    train_task(init, close, args.exp, env_cfg_path, i, skip=skip, logger_pass=None)
+  File "/home/he/projects/cl_seg/train_task_new.py", line 387, in train_task
+    _ = trainer.fit(
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 771, in fit
+    self._call_and_handle_interrupt(
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 722, in _call_and_handle_interrupt
+    return self.strategy.launcher.launch(trainer_fn, *args, trainer=self, **kwargs)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/strategies/launchers/subprocess_script.py", line 93, in launch
+    return function(*args, **kwargs)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 812, in _fit_impl
+    results = self._run(model, ckpt_path=self.ckpt_path)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 1237, in _run
+    results = self._run_stage()
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 1324, in _run_stage
+    return self._run_train()
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 1354, in _run_train
+    self.fit_loop.run()
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/fit_loop.py", line 269, in advance
+    self._outputs = self.epoch_loop.run(self._data_fetcher)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/epoch/training_epoch_loop.py", line 208, in advance
+    batch_output = self.batch_loop.run(batch, batch_idx)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/batch/training_batch_loop.py", line 88, in advance
+    outputs = self.optimizer_loop.run(split_batch, optimizers, batch_idx)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 203, in advance
+    result = self._run_optimization(
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 256, in _run_optimization
+    self._optimizer_step(optimizer, opt_idx, batch_idx, closure)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 369, in _optimizer_step
+    self.trainer._call_lightning_module_hook(
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 1596, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/core/lightning.py", line 1625, in optimizer_step
+    optimizer.step(closure=optimizer_closure)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/core/optimizer.py", line 168, in step
+    step_output = self._strategy.optimizer_step(self._optimizer, self._optimizer_idx, closure, **kwargs)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/strategies/ddp.py", line 278, in optimizer_step
+    optimizer_output = super().optimizer_step(optimizer, opt_idx, closure, model, **kwargs)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/strategies/strategy.py", line 193, in optimizer_step
+    return self.precision_plugin.optimizer_step(model, optimizer, opt_idx, closure, **kwargs)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/plugins/precision/native_amp.py", line 85, in optimizer_step
+    closure_result = closure()
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 148, in __call__
+    self._result = self.closure(*args, **kwargs)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 134, in closure
+    step_output = self._step_fn()
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 430, in _training_step
+    model_output = self.trainer._call_lightning_module_hook("training_step_end", training_step_output)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 1596, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "/home/he/projects/cl_seg/src/lightning/lightning_new.py", line 271, in training_step_end
+    self._visu_callback.training_step_end(self.trainer, self, outputs)
+  File "/home/he/projects/cl_seg/src/callbacks/visu.py", line 40, in training_step_end
+    self._visu(trainer, pl_module, outputs, pl_module._task_count)
+  File "/home/he/projects/cl_seg/src/callbacks/visu.py", line 144, in _visu
+    self.visualizer.plot_detectron(
+  File "/home/he/projects/cl_seg/src/visu/visualizer.py", line 77, in wrap
+    res = func(*args, **kwargs_clone)
+  File "/home/he/projects/cl_seg/src/visu/visualizer.py", line 598, in plot_detectron
+    mask = mark_boundaries(img_new, label, color=(255, 255, 255))
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/skimage/segmentation/boundaries.py", line 222, in mark_boundaries
+    float_dtype = _supported_float_type(image.dtype)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/PIL/Image.py", line 548, in __getattr__
+    raise AttributeError(name)
+AttributeError: dtype
+AttributeError: dtype
+Epoch 0:   0%|          | 0/12451 [00:02<?, ?it/s]

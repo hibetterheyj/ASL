@@ -1,0 +1,75 @@
+Traceback (most recent call last):
+  File "supervisor_new.py", line 80, in <module>
+    train_task(init, close, args.exp, env_cfg_path, i, skip=skip, logger_pass=None)
+  File "/home/he/projects/cl_seg/train_task_new.py", line 387, in train_task
+    _ = trainer.fit(
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 771, in fit
+    self._call_and_handle_interrupt(
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 722, in _call_and_handle_interrupt
+    return self.strategy.launcher.launch(trainer_fn, *args, trainer=self, **kwargs)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/strategies/launchers/subprocess_script.py", line 93, in launch
+    return function(*args, **kwargs)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 812, in _fit_impl
+    results = self._run(model, ckpt_path=self.ckpt_path)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 1237, in _run
+    results = self._run_stage()
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 1324, in _run_stage
+    return self._run_train()
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 1354, in _run_train
+    self.fit_loop.run()
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/fit_loop.py", line 269, in advance
+    self._outputs = self.epoch_loop.run(self._data_fetcher)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/epoch/training_epoch_loop.py", line 208, in advance
+    batch_output = self.batch_loop.run(batch, batch_idx)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/batch/training_batch_loop.py", line 88, in advance
+    outputs = self.optimizer_loop.run(split_batch, optimizers, batch_idx)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 203, in advance
+    result = self._run_optimization(
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 256, in _run_optimization
+    self._optimizer_step(optimizer, opt_idx, batch_idx, closure)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 369, in _optimizer_step
+    self.trainer._call_lightning_module_hook(
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 1596, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/core/lightning.py", line 1625, in optimizer_step
+    optimizer.step(closure=optimizer_closure)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/core/optimizer.py", line 168, in step
+    step_output = self._strategy.optimizer_step(self._optimizer, self._optimizer_idx, closure, **kwargs)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/strategies/ddp.py", line 278, in optimizer_step
+    optimizer_output = super().optimizer_step(optimizer, opt_idx, closure, model, **kwargs)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/strategies/strategy.py", line 193, in optimizer_step
+    return self.precision_plugin.optimizer_step(model, optimizer, opt_idx, closure, **kwargs)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/plugins/precision/native_amp.py", line 85, in optimizer_step
+    closure_result = closure()
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 148, in __call__
+    self._result = self.closure(*args, **kwargs)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 134, in closure
+    step_output = self._step_fn()
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 430, in _training_step
+    model_output = self.trainer._call_lightning_module_hook("training_step_end", training_step_output)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 1596, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "/home/he/projects/cl_seg/src/lightning/lightning_new.py", line 271, in training_step_end
+    self._visu_callback.training_step_end(self.trainer, self, outputs)
+  File "/home/he/projects/cl_seg/src/callbacks/visu.py", line 40, in training_step_end
+    self._visu(trainer, pl_module, outputs, pl_module._task_count)
+  File "/home/he/projects/cl_seg/src/callbacks/visu.py", line 144, in _visu
+    self.visualizer.plot_detectron(
+  File "/home/he/projects/cl_seg/src/visu/visualizer.py", line 77, in wrap
+    res = func(*args, **kwargs_clone)
+  File "/home/he/projects/cl_seg/src/visu/visualizer.py", line 598, in plot_detectron
+    mask = mark_boundaries(img_new, label, color=(255, 255, 255))
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/skimage/segmentation/boundaries.py", line 222, in mark_boundaries
+    float_dtype = _supported_float_type(image.dtype)
+  File "/home/he/miniconda/envs/cl/lib/python3.8/site-packages/PIL/Image.py", line 548, in __getattr__
+    raise AttributeError(name)
+AttributeError: dtype
+Epoch 0:   0%|          | 0/3113 [00:07<?, ?it/s]
