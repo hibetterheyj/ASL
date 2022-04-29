@@ -1,3 +1,7 @@
+# symlinks
+res
+dataset
+
 **.pt
 *ws.codeworkspace
 *launch.json

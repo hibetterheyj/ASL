@@ -595,7 +595,13 @@ class Visualizer:
         draw.text(tuple(pose), str(i[0]), fill=(255, 255, 255, 128), font=font)
 
     img_new = img_new.convert("RGB")
-    mask = mark_boundaries(img_new, label, color=(255, 255, 255))
+
+    # TODO: img_new type: PIL.Image.Image mode=RGB
+    # AttributeError: dtype
+    # yujie: convert to numpy
+    img_new_np = np.array(img_new)
+
+    mask = mark_boundaries(img_new_np, label, color=(255, 255, 255))
     mask = mask.sum(axis=2)
     m = mask == mask.max()
     img_new = np.array(img_new)
